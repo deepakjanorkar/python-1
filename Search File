@@ -1,0 +1,17 @@
+Python can search for file names in a specified path of the OS.
+This can be done using the module os with the walk() functions. 
+This will take a specific path as input and generate a 3-tuple involving dirpath, dirnames, and filenames.
+
+Example:-
+import os
+
+def find_files(filename, search_path):
+   result = []
+
+# Wlaking top-down from the root
+   for root, dir, files in os.walk(search_path):
+      if filename in files:
+         result.append(os.path.join(root, filename))
+   return result
+
+print(find_files("smpl.htm","D:"))
